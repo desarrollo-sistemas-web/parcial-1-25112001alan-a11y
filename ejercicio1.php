@@ -4,5 +4,5 @@
 //Complejidad: BAJA (1 punto)
 
 function saludar($nombre) {
-    // Tu código aquí
+    echo "Hola, $nombre!";
 }

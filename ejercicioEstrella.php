@@ -24,5 +24,24 @@
 
 
 function validarTarjeta($numeroTarjeta) {
-
+    $suma = 0;
+    $longitud = strlen($numeroTarjeta);
+    
+    for ($i = 0; $i < $longitud; $i++) {
+        $digito = intval($numeroTarjeta[$i]);
+        
+        // Acá multiplico *2 las posiciones impares
+        if ($i % 2 == 0) {
+            $digito *= 2;
+            // Si el resultado es mayor o igual a 10, sumar los dígitos del resultado
+            if ($digito >= 10) {
+                $digito = ($digito - 10) + 1; // Sumar los dígitos del resultado
+            }
+        }
+        
+        $suma += $digito;
+    }
+    
+    // Verificar si la suma termina en 0
+    return ($suma % 10 == 0);
 }
